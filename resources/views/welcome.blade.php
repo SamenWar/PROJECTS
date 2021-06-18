@@ -18,7 +18,7 @@
                             </div>
                             <h2>К спису проектов</h2>
                             <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                            <a href="#" class="icon-link">
+                            <a href="{{route('projects.index')}}" class="icon-link">
                                 Call to action
                                 <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"></use></svg>
                             </a>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\project;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -10,11 +11,19 @@ class ProjectController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $id = auth()->id();
+        if(!empty($id)) {
+            $user = User::find($id);
+            $projects = $user->projects()->paginate(6);
+            return view('projects.List', ['projects'=>$projects, 'id'=>$id]);
+        }else
+        {
+            return redirect('/');
+        }
     }
 
     /**

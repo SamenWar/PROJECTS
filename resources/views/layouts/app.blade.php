@@ -77,8 +77,11 @@
         </header>
 
         <main class="py-4">
-            @yield('title')
+
+            <div class="container">
+                @yield('title')
             @yield('content')
+            </div>
         </main>
     </div>
 </body>
