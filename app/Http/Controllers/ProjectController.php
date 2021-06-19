@@ -57,11 +57,12 @@ class ProjectController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\project  $project
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function show(project $project)
     {
-        //
+
+        return redirect(route('task.index',['project'=>$project['id']]));
     }
 
     /**

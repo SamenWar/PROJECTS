@@ -3,6 +3,12 @@
     <h1>Список ваших проектов</h1>
 @endsection
 @section('content')
+
+    <style>
+        a {
+            display: block;
+        }
+    </style>
 <table class="table table-dark table-hover">
         <thead>
         <tr>
@@ -17,8 +23,8 @@
         @foreach($projects as $project)
         <tr>
 
-            <td>{{$project['title']}}</td>
-            <td>{{$project['deskription']}}</td>
+            <td><a href="{{route('projects.show', $project['id'])}}">{{$project['title']}}</a></td>
+            <td><a href="{{route('projects.show', $project['id'])}}">{{$project['deskription']}}</a></td>
             <td><a href="{{route('projects.edit', $project['id'])}}" class="btn btn-warning">Обновить</a>
                 <form method="POST" action="{{route('projects.destroy',$project['id'])}}">
                     @csrf
