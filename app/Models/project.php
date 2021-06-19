@@ -8,6 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class project extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'user_id',
+        'title',
+        'deskription',
+        'important'
+    ];
     public function tasks(){
         return $this->hasMany(task::class);
     }

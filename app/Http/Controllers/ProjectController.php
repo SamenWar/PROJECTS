@@ -29,22 +29,28 @@ class ProjectController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        return view('projects.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function store(Request $request)
     {
-        //
+        $project = new project();
+        $project->user_id=auth()->id();
+        $project->title=$request->title;
+        $project->deskription=$request->deskription;
+        $project->important=$request->important;
+        $project->save();
+        return redirect(route('projects.index'));
     }
 
     /**
@@ -62,11 +68,12 @@ class ProjectController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\project  $project
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function edit(project $project)
     {
-        //
+
+        return view('projects.update',['project'=>$project]);
     }
 
     /**
@@ -74,21 +81,28 @@ class ProjectController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\project  $project
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function update(Request $request, project $project)
     {
-        //
+        $project->title=$request->title;
+        $project->deskription=$request->deskription;
+        $project->important=$request->important;
+        $project->save();
+        return redirect(route('projects.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\project  $project
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function destroy(project $project)
     {
-        //
+
+
+        $project->delete();
+        return redirect(route('projects.index'));
     }
 }

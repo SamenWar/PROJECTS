@@ -24,7 +24,7 @@ class TaskFactory extends Factory
         return [
 
             'title'=>$this->faker->name(),
-            'project_id'=>$this->faker->numberBetween(1,11),
+            'project_id'=>$this->faker->numberBetween(1,9),
             'deskription'=>$this->faker->text()
         ];
     }

@@ -6,19 +6,26 @@
 <table class="table table-dark table-hover">
         <thead>
         <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+
+            <th scope="col">Название</th>
+            <th scope="col">Описание</th>
+            <th scope="col">Действия</th>
+
         </tr>
         </thead>
         <tbody>
         @foreach($projects as $project)
         <tr>
-            <th scope="row">{{$project['id']}}</th>
+
             <td>{{$project['title']}}</td>
             <td>{{$project['deskription']}}</td>
-            <td>{{$project['prepare']}}</td>
+            <td><a href="{{route('projects.edit', $project['id'])}}" class="btn btn-warning">Обновить</a>
+                <form method="POST" action="{{route('projects.destroy',$project['id'])}}">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger delete-btn">Удалить</button>
+            </form>
+            </td>
         </tr>
         @endforeach
         </tbody>
@@ -31,5 +38,5 @@
     .display:none
     }
 </style>
-    <a href="#" class="btn btn-warning">Созать новый проект</a>
+    <a href="{{route('projects.create')}}" class="btn btn-warning">Созать новый проект</a>
 @endsection
