@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
@@ -27,3 +28,9 @@ Route::resources([
     'projects' => ProjectController::class,
     'task' => TaskController::class,
 ]);
+
+Route::group(['middleware' => ['role:admin']], function () {
+    route::resource(
+        'admin', AdminController::class
+    );
+});

@@ -7,11 +7,11 @@
         @csrf
 
         <label  class="col-sm-2 col-form-label">Введите имя проекта</label>
-        <input type="text" name="title" class="form-control" id="inputPassword">
+        <input type="text" value="{{$project['title']}}" name="title" class="form-control" >
 
         <label  class="col-sm-2 col-form-label">Опишите ваш проект</label>
 
-        <textarea class="form-control" name="deskription" ></textarea>
+        <input class="form-control" value="{{$project['description']}}" name="deskription" >
         <label for="customRange1" class="col-sm-2 col-form-label">Насколько он для вас важен</label>
 
         <select class="form-select" name="important" aria-label="Default select example">
