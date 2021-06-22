@@ -16,7 +16,7 @@
                             <div class="feature-icon bg-primary bg-gradient">
                                 <svg class="bi" width="1em" height="1em"><use xlink:href="#collection"></use></svg>
                             </div>
-                            <h2>К спису проектов</h2>
+                            <h2>К списку проектов</h2>
                             <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
                             <a href="{{route('projects.index')}}" class="icon-link">
                                 Call to action
@@ -39,7 +39,7 @@
                                 <div class="feature-icon bg-primary bg-gradient">
                                     <svg class="bi" width="1em" height="1em"><use xlink:href="#collection"></use></svg>
                                 </div>
-                                <h2>Зарегестрируйтес или войдите в свою учетную запись</h2>
+                                <h2>Зарегестрируйтесь или войдите в свою учетную запись</h2>
                                 <p>Зарегестрировавшись, вы получите доступ к функционалу приожения</p>
                                 <a href="{{ route('register') }}" class="icon-link">
                                     Зарегистрироваться

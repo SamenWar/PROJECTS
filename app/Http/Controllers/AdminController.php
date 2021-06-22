@@ -15,7 +15,8 @@ class AdminController extends Controller
     public function index()
     {
         $Users = User::paginate(20);
-        return view('admin.admin', ['Users'=>$Users]);
+        $num = User::count() - 1;
+        return view('admin.admin', ['Users'=>$Users, 'num'=>$num]);
     }
 
     /**
@@ -81,6 +82,6 @@ class AdminController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
     }
 }
