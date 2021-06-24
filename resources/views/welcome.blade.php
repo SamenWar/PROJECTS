@@ -39,7 +39,7 @@
                                 <div class="feature-icon bg-primary bg-gradient">
                                     <svg class="bi" width="1em" height="1em"><use xlink:href="#collection"></use></svg>
                                 </div>
-                                <h2>Зарегестрируйтесь или войдите в свою учетную запись</h2>
+                                <h2>Зарегестрируйтесь!</h2>
                                 <p>Зарегестрировавшись, вы получите доступ к функционалу приожения</p>
                                 <a href="{{ route('register') }}" class="icon-link">
                                     Зарегистрироваться
