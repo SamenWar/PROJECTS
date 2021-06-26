@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TaskRequest;
 use App\Models\project;
 use App\Models\task;
 use Illuminate\Http\Request;
@@ -47,6 +48,7 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validated();
         $task = new task();
         $task->title=$request->title;
         $task->project_id=$request->project_id;
@@ -86,8 +88,9 @@ class TaskController extends Controller
      * @param  \App\Models\task  $task
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, task $task)
+    public function update(TaskRequest $request, task $task)
     {
+
         $project=$task->project_id;
         $task->title=$request->title;
         $task->deskription=$request->deskription;

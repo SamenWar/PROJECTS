@@ -1,9 +1,13 @@
 
 @extends('layouts.app')
 @section('content')
-    @php
-
-    @endphp
+ @if($errors->any()s)
+     <div class="alert alert-danger">
+         @foreach($errors->all() as $error)
+            {{$error}}
+         @endforeach
+     </div>
+ @endif
     <form action="{{route('task.store')}}" method="POST">
         @csrf
         <input type="hidden" name="project_id" value="{{$id}}">
